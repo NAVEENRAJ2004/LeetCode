@@ -1,15 +1,17 @@
-import java.util.*;
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        HashMap<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            int num = nums[i];
-            int complement = target - num;
-            if (map.containsKey(complement)) {
-                return new int[] { map.get(complement), i };
+        //Creating a new hashmap
+        HashMap<Integer, Integer> map = new HashMap<>();//<value,index>
+
+        for(int i = 0; i < nums.length; i++) {
+            //checking whether the map contains the value of the index by subracting the current index by the target eg. tar = 9, curr index = 2, 9-2 = 7, if 7 present in the map then return index of the elements
+            if(map.containsKey(target-nums[i])){
+                return new int[] { map.get(target-nums[i]), i};
             }
-            map.put(num, i);
+            //else add the element to the hashmap and let the loop run
+            map.put(nums[i], i);
         }
-        throw new IllegalArgumentException("No two sum solution");
+        //return empty array if we do not find anything
+        return new int[] {};
     }
 }
