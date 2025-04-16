@@ -7,6 +7,7 @@ class Solution {
                 return true;
             }
         }
+        return false;
         }
         catch(ArrayIndexOutOfBoundsException e){
             System.out.print("false");
